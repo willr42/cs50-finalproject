@@ -1,6 +1,5 @@
-# Ignore VENV
-/api/venv
-/api/__pycache__
+# Ignore codespace
+*.code-workspace
 
 # Logs
 logs
