@@ -1,8 +1,8 @@
-const express = require('express');
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
-const dotenv = require('dotenv');
+import express from 'express';
+import session from 'express-session';
+import * as dotenv from 'dotenv';
 
+const FileStore = require('session-file-store')(session);
 // initialise express app
 const app = express();
 
@@ -40,3 +40,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(session(sessionOptions));
+
+// Serve React files
+app.use(express.static('build'));
+app.get('/', (req, res) => {
+  console.log(req);
+});
