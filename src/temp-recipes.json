@@ -1,0 +1,71 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Spiced lamb shoulder with mint and coriander chutney",
+      "source": "GoodFood",
+      "time": "2 hours",
+      "serves": "4-6",
+      "ingredients": [
+        "1.5kg lamb shoulder, bone in",
+        "1 tsp salt",
+        "1 tsp ground black pepper",
+        "1 cup thick yoghurt",
+        "4 cloves garlic, grated on a rasp grater",
+        "2cm ginger, grated on a rasp grater",
+        "1 tbsp ground cumin",
+        "1 tbsp ground coriander",
+        "1 tsp turmeric powder",
+        "1 tbsp garam masala",
+        "3 red onions, peeled",
+        "lemon wedges, to serve",
+        "For the mint and coriander chutney",
+        "1 cup mint leaves, plus extra leaves to serve",
+        "1 cup loosely packed coriander (stalks, roots and leaves), plus extra leaves to serve",
+        "1 large green chilli, seeds removed",
+        "2cm ginger, peeled",
+        "3 garlic cloves, peeled",
+        "½ tsp ground cumin",
+        "juice of ½ lemon ",
+        "½ tsp salt",
+        "1 tsp sugar",
+        "1 cup thick yoghurt"
+      ],
+      "method": [
+        "Season the lamb shoulder very well with the salt and pepper. Combine the yoghurt, garlic, ginger and spices and rub all over the lamb. Marinate overnight in the refrigerator.",
+        "Heat your oven to 160C fan-forced (180C conventional). Cut two of the onions into quarters and place them in the base of a lidded pan or roasting tray. Put the lamb on top and add a cup of water. Cover with a lid or aluminium foil and roast for 4 hours. Uncover the lamb for the last hour of cooking to brown the meat and onions. Use the grill setting if the lamb is not browned to your liking. ",
+        "For the chutney, combine all the ingredients except the yoghurt in a blender and blend to a smooth paste, adding a little water if necessary. Swirl through the yoghurt. ",
+        "Finely slice the remaining red onion and scatter over the lamb with extra mint and coriander leaves. Serve with lemon wedges and the chutney, and accompany with rice, naan or flour tortillas if you like."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Risotto with pork and fennel sausage and burrata",
+      "source": "GoodFood",
+      "time": "30 minutes - 1 hour",
+      "serves": "4-6",
+      "ingredients": [
+        "2 litres chicken stock",
+        "extra virgin olive oil",
+        "300g pork and fennel sausages, skin removed",
+        "5 eschalots (French shallots) or 1 onion, finely diced",
+        "3 garlic cloves, finely sliced",
+        "1 fresh bay leaf",
+        "salt flakes",
+        "500g carnaroli, vialone nano or arborio rice",
+        "200ml dry white wine",
+        "3 handfuls of frozen peas, thawed under hot tap water",
+        "120g unsalted butter, diced",
+        "180g parmigiano reggiano or grana padano, finely grated",
+        "2 burrata, about 90g"
+      ],
+      "method": [
+        "Bring the stock to a simmer in a saucepan, then keep hot over a low heat.",
+        "Heat a couple of tablespoons of oil in a wide, heavy-based saucepan over medium heat. Crumble in the sausage meat and fry until golden (about 5 minutes), then remove from the pan.",
+        "Add a little more oil to the pan, along with the eschalot (or onion), garlic and bay leaf, season lightly with salt, then sweat until softened, but not caramelised (about 5 minutes). Return the sausage to the pan and add the rice, stirring constantly until the grains are hot to the touch (about 2 minutes), then add the wine. Stir until the wine has reduced to almost nothing, then add enough stock to cover. Stir until almost dry again, then repeat. If you run out of stock, use hot water.",
+        "Cook until the rice is al dente (15-20 minutes) and the risotto is loose, but not soupy. Stir through the peas. Turn off the heat and add the butter and parmesan. Whip the risotto quite vigorously with your spoon until creamy. Adjust the seasoning as needed and add a little more water or stock if needed (risotto should never be stiff). Stand for 2 minutes before serving.",
+        "Transfer to a serving dish or individual plates, tear over the burrata and serve."
+      ]
+    }
+  ]
+}
