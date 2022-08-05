@@ -14,9 +14,10 @@ const RecipeCard: React.FunctionComponent<RecipeCardProps> = ({
   name,
   time,
   serves,
+  onClick,
 }) => {
   return (
-    <div className={styles.recipeCard}>
+    <div className={styles.recipeCard} onClick={onClick}>
       <h1>{name}</h1>
       <p>{time}</p>
       <p>{serves}</p>

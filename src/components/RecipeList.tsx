@@ -10,13 +10,11 @@ import styles from './RecipeList.module.css';
 const userRecipes = recipeJSON.recipes;
 
 const RecipeList = () => {
-  const [detailsOpen, setDetailsOpen] = useState(false);
   const [clickedRecipeID, setClickedRecipeID] = useState(0);
 
   return (
     <div className={styles.recipeList}>
-      {detailsOpen && <RecipeDetails id={clickedRecipeID}></RecipeDetails>}
-
+      <RecipeDetails id={clickedRecipeID}></RecipeDetails>
       {userRecipes.map((recipe) => {
         return (
           <RecipeCard
@@ -25,7 +23,6 @@ const RecipeList = () => {
             time={recipe.time}
             serves={recipe.serves}
             onClick={() => {
-              setDetailsOpen(true);
               setClickedRecipeID(recipe.id);
             }}
           ></RecipeCard>
