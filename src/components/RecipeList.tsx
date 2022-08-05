@@ -15,11 +15,12 @@ const RecipeList = () => {
 
   return (
     <div className={styles.recipeList}>
-      {!detailsOpen && <RecipeDetails id={clickedRecipeID}></RecipeDetails>}
+      {detailsOpen && <RecipeDetails id={clickedRecipeID}></RecipeDetails>}
 
       {userRecipes.map((recipe) => {
         return (
           <RecipeCard
+            key={recipe.id}
             name={recipe.name}
             time={recipe.time}
             serves={recipe.serves}
