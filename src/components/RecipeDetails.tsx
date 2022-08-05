@@ -5,7 +5,7 @@
 // Ingredients Details
 // Method
 // Close
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './RecipeDetails.module.css';
 import recipeJSON from '../temp-recipes.json';
 
@@ -30,16 +30,23 @@ const RecipeDetails: React.FunctionComponent<RecipeDetailsProps> = ({ id }) => {
   const [chosenRecipe, setChosenRecipe] = useState<Recipe>();
 
   // fetch the detailed recipe
-  let foundRecipe = userRecipes.find((recipe) => {
-    return recipe.id === id;
-  });
+  useEffect(() => {
+    let ignore = false;
+    let foundRecipe = userRecipes.find((recipe) => {
+      return recipe.id === id;
+    });
+    if (!ignore) {
+      if (foundRecipe) {
+        setChosenRecipe(foundRecipe);
+      }
+    }
+    return () => {
+      ignore = true;
+    };
+  }, [id]);
 
-  if (foundRecipe) {
-    setChosenRecipe(foundRecipe);
-  }
-
-  if (chosenRecipe === undefined) {
-    return <div></div>;
+  if (!chosenRecipe) {
+    return <></>;
   }
 
   // return a fullscreen modal with a listener to turn off the modal class
