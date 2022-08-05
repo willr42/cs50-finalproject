@@ -28,19 +28,24 @@ const userRecipes = recipeJSON.recipes;
 const RecipeDetails: React.FunctionComponent<RecipeDetailsProps> = ({ id }) => {
   // state
   const [chosenRecipe, setChosenRecipe] = useState<Recipe>();
+
   // fetch the detailed recipe
   let foundRecipe = userRecipes.find((recipe) => {
     return recipe.id === id;
   });
 
-  setChosenRecipe(foundRecipe);
-
-  if (chosenRecipe === undefined) {
-    return <></>;
+  if (foundRecipe) {
+    setChosenRecipe(foundRecipe);
   }
 
-  // TODO: return a fullscreen modal with a listener to turn off the modal class
-  return <div className={styles.recipeDetails}></div>;
+  if (chosenRecipe === undefined) {
+    return <div></div>;
+  }
+
+  // return a fullscreen modal with a listener to turn off the modal class
+  else {
+    return <div className={styles.recipeDetails}></div>;
+  }
 };
 
 export default RecipeDetails;
