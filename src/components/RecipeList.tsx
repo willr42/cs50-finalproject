@@ -13,21 +13,28 @@ const RecipeList = () => {
   const [clickedRecipeID, setClickedRecipeID] = useState(0);
 
   return (
-    <div className={styles.recipeList}>
-      <RecipeDetails id={clickedRecipeID}></RecipeDetails>
-      {userRecipes.map((recipe) => {
-        return (
-          <RecipeCard
-            key={recipe.id}
-            name={recipe.name}
-            time={recipe.time}
-            serves={recipe.serves}
-            onClick={() => {
-              setClickedRecipeID(recipe.id);
-            }}
-          ></RecipeCard>
-        );
-      })}
+    <div>
+      <RecipeDetails
+        id={clickedRecipeID}
+        onClick={(event) => {
+          setClickedRecipeID(0);
+        }}
+      ></RecipeDetails>
+      <div className={styles.recipeList}>
+        {userRecipes.map((recipe) => {
+          return (
+            <RecipeCard
+              key={recipe.id}
+              name={recipe.name}
+              time={recipe.time}
+              serves={recipe.serves}
+              onClick={() => {
+                setClickedRecipeID(recipe.id);
+              }}
+            ></RecipeCard>
+          );
+        })}
+      </div>
     </div>
   );
 };
