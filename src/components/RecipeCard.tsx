@@ -2,6 +2,7 @@
 // When tapped, it loads a RecipeDetails with the full info.
 import { MouseEventHandler } from 'react';
 import styles from './RecipeCard.module.css';
+import RecipeTimeAndServe from './RecipeTimeAndServe';
 
 type RecipeCardProps = {
   name: string;
@@ -17,10 +18,13 @@ const RecipeCard: React.FunctionComponent<RecipeCardProps> = ({
   onClick,
 }) => {
   return (
-    <div className={styles.recipeCard} onClick={onClick}>
-      <h1>{name}</h1>
-      <p>{time}</p>
-      <p>{serves}</p>
+    <div className={styles.cardContainer} onClick={onClick}>
+      <div className={styles.cardInside}>
+        <h1>{name}</h1>
+        <div className={styles.cardDetails}>
+          <RecipeTimeAndServe time={time} serves={serves} />
+        </div>
+      </div>
     </div>
   );
 };
