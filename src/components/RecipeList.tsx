@@ -16,7 +16,7 @@ const RecipeList = () => {
     <div>
       <RecipeDetails
         id={clickedRecipeID}
-        onClick={(event) => {
+        onClick={() => {
           setClickedRecipeID(0);
         }}
       ></RecipeDetails>

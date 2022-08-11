@@ -34,6 +34,11 @@ const RecipeDetails: React.FunctionComponent<RecipeDetailsProps> = ({
   // state
   const [chosenRecipe, setChosenRecipe] = useState<Recipe>();
 
+  // close function. 'any' type to allow us to handle clicks and keyboard presses with the one passed-in function.
+  const closeOnDetail = (event: any) => {
+    onClick(event);
+  };
+
   // fetch the detailed recipe
   useEffect(() => {
     let ignore = false;
@@ -49,6 +54,21 @@ const RecipeDetails: React.FunctionComponent<RecipeDetailsProps> = ({
       ignore = true;
     };
   }, [id]);
+
+  useEffect(() => {
+    const keyListener = (event: any) => {
+      console.log(event);
+      if (event.code === 'Escape') {
+        closeOnDetail(event);
+      }
+    };
+
+    document.addEventListener('keydown', keyListener);
+    // cleanup
+    return () => {
+      document.removeEventListener('keydown', keyListener);
+    };
+  });
 
   if (!chosenRecipe || id === 0) {
     return <></>;
