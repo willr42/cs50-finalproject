@@ -6,7 +6,7 @@ import RecipeTimeAndServe from './RecipeTimeAndServe';
 
 type RecipeCardProps = {
   name: string;
-  time: string;
+  time: number;
   serves: string;
   onClick: MouseEventHandler;
 };

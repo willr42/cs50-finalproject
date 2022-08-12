@@ -19,7 +19,7 @@ type Recipe = {
   id: number;
   name: string;
   source: string;
-  time: string;
+  time: number;
   serves: string;
   ingredients: string[];
   method: string[];
