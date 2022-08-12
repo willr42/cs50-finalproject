@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Spiced lamb shoulder with mint and coriander chutney",
       "source": "GoodFood",
-      "time": "2 hours",
+      "time": 120,
       "serves": "4-6",
       "ingredients": [
         "1.5kg lamb shoulder, bone in",
@@ -42,7 +42,7 @@
       "id": 2,
       "name": "Risotto with pork and fennel sausage and burrata",
       "source": "GoodFood",
-      "time": "30 minutes - 1 hour",
+      "time": 60,
       "serves": "4-6",
       "ingredients": [
         "2 litres chicken stock",
