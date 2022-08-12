@@ -87,10 +87,8 @@ const RecipeDetails: React.FunctionComponent<RecipeDetailsProps> = ({
               serves={chosenRecipe.serves}
             />
           </div>
-          <button className={styles.closeModalButton}>
-            <span aria-hidden='true' onClick={onClick}>
-              &times;
-            </span>
+          <button className={styles.closeModalButton} onClick={onClick}>
+            <span aria-hidden='true'>&times;</span>
           </button>
         </div>
       </div>
