@@ -86,6 +86,20 @@ const RecipeDetails: React.FunctionComponent<RecipeDetailsProps> = ({
               time={chosenRecipe.time}
               serves={chosenRecipe.serves}
             />
+            <div className={styles.ingredientsContainer}>
+              <h3 className={styles.ingredientsTitle}>Ingredients</h3>
+              {chosenRecipe.ingredients.map((ingredient) => (
+                <li className={styles.ingredientsContent}>{ingredient}</li>
+              ))}
+              <p className={styles.ingredientsContent}>{}</p>
+            </div>
+            <div className={styles.methodContainer}>
+              <h3 className={styles.methodTitle}>Method</h3>
+              {chosenRecipe.method.map((step) => (
+                <ol className={styles.methodContent}>{step}</ol>
+              ))}
+              <p className={styles.methodContent}>{}</p>
+            </div>
           </div>
           <button className={styles.closeModalButton} onClick={onClick}>
             <span aria-hidden='true'>&times;</span>
