@@ -1,10 +1,13 @@
 import RecipeList from './components/RecipeList';
 import './App.css';
+import { RecipeContextProvider } from './components/RecipeContext';
 
 function App() {
   return (
     <main>
-      <RecipeList />
+      <RecipeContextProvider>
+        <RecipeList />
+      </RecipeContextProvider>
     </main>
   );
 }

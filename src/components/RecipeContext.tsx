@@ -5,10 +5,10 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const RecipeContext: React.FC<Props> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const RecipeContext = createContext<RecipeRecord[]>([]);
+
+const RecipeContextProvider: React.FC<Props> = ({ children }) => {
   const [userRecipes, setUserRecipes] = useState<RecipeRecord[]>([]);
-  const RecipeContext = createContext(userRecipes);
 
   // get user recipes
   useEffect(() => {
@@ -25,7 +25,7 @@ const RecipeContext: React.FC<Props> = ({ children }) => {
     return () => {
       ignore = true;
     };
-  }, [isAuthenticated]);
+  }, []);
 
   return (
     <RecipeContext.Provider value={userRecipes}>
@@ -34,4 +34,4 @@ const RecipeContext: React.FC<Props> = ({ children }) => {
   );
 };
 
-export default RecipeContext;
+export { RecipeContext, RecipeContextProvider };
