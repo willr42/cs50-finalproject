@@ -1,16 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-
-type RecipeRecord = {
-  recipe_id: number;
-  contents: {
-    name: string;
-    source: string;
-    time: number;
-    serves: string;
-    ingredients: Array<string>;
-    method: Array<string>;
-  };
-};
+import { RecipeRecord } from './types';
 
 type Props = {
   children?: React.ReactNode;
