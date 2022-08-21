@@ -5,43 +5,30 @@
 // Ingredients Details
 // Method
 // Close
-import { MouseEventHandler, useContext, useEffect, useState } from 'react';
+import { MouseEventHandler, useEffect, useState } from 'react';
 import styles from './RecipeDetails.module.css';
-import recipeJSON from '../temp-recipes.json';
 import RecipeTimeAndServe from './RecipeTimeAndServe';
-import { RecipeRecord } from './RecipeList';
+import { RecipeRecord } from './types';
 import Modal from './Modal';
 
 type RecipeDetailsProps = {
+  recipes: RecipeRecord[];
   id: number;
   onClick: MouseEventHandler;
 };
 
-const userRecipes = recipeJSON.recipes;
-
 const RecipeDetails: React.FunctionComponent<RecipeDetailsProps> = ({
   id,
+  recipes,
   onClick,
 }) => {
   // state
   const [chosenRecipe, setChosenRecipe] = useState<RecipeRecord>();
 
-  // TODO: update this to use context passed in. Might not need useEffect - data is already in memory.
-  // fetch the detailed recipe
-  // useEffect(() => {
-  //   let ignore = false;
-  //   let foundRecipe = userRecipes.find((recipe) => {
-  //     return recipe.id === id;
-  //   });
-  //   if (!ignore) {
-  //     if (foundRecipe) {
-  //       setChosenRecipe(foundRecipe);
-  //     }
-  //   }
-  //   return () => {
-  //     ignore = true;
-  //   };
-  // }, [id]);
+  useEffect(() => {
+    let foundRecipe = recipes.find((recipe) => recipe.recipe_id === id);
+    setChosenRecipe(foundRecipe);
+  }, [id, recipes]);
 
   if (!chosenRecipe || id === 0) {
     return <></>;
