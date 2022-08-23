@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
+import fetchWithCreds from '../utils/fetchWithCreds';
 import { RecipeRecord } from './types';
 
 type Props = {
@@ -13,7 +14,7 @@ const RecipeContextProvider: React.FC<Props> = ({ children }) => {
   // get user recipes
   useEffect(() => {
     let ignore = false;
-    fetch('http://localhost:9080/api/recipes')
+    fetchWithCreds({ url: 'http://localhost:9080/api/recipes' })
       .then((result) => {
         return result.json();
       })
