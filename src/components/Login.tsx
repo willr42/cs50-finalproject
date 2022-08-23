@@ -24,10 +24,7 @@ const Login = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const loggedIn = await handleLogin({
-      email,
-      password,
-    });
+    await handleLogin({ email, password });
     ctx.setIsLoggedIn(true);
   };
 
