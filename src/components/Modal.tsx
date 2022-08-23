@@ -12,7 +12,6 @@ const Modal: React.FunctionComponent<Props> = ({ onClick, children }) => {
   };
   useEffect(() => {
     const keyListener = (event: any) => {
-      console.log(event);
       if (event.code === 'Escape') {
         closeOnDetail(event);
       }
@@ -28,6 +27,11 @@ const Modal: React.FunctionComponent<Props> = ({ onClick, children }) => {
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
         {children}
+        <div className={styles.bottomContainer}>
+          <button className={styles.bottomButton} onClick={onClick}>
+            Close
+          </button>
+        </div>
         <button className={styles.closeModalButton} onClick={onClick}>
           <span aria-hidden='true'>&times;</span>
         </button>
