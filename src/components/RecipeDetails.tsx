@@ -47,18 +47,22 @@ const RecipeDetails: React.FunctionComponent<RecipeDetailsProps> = ({
             time={chosenRecipe.contents.time}
             serves={chosenRecipe.contents.serves}
           />
-          <div className={styles.ingredientsContainer}>
+          <div className={styles.detailsContainer}>
             <h3 className={styles.ingredientsTitle}>Ingredients</h3>
-            {chosenRecipe.contents.ingredients.map((ingredient) => (
-              <li className={styles.ingredientsContent}>{ingredient}</li>
-            ))}
+            <ul>
+              {chosenRecipe.contents.ingredients.map((ingredient) => (
+                <li className={styles.listItems}>{ingredient}</li>
+              ))}
+            </ul>
             <p className={styles.ingredientsContent}>{}</p>
           </div>
-          <div className={styles.methodContainer}>
+          <div className={styles.detailsContainer}>
             <h3 className={styles.methodTitle}>Method</h3>
-            {chosenRecipe.contents.method.map((step) => (
-              <ol className={styles.methodContent}>{step}</ol>
-            ))}
+            <ol className={styles.methodContent}>
+              {chosenRecipe.contents.method.map((step) => (
+                <li className={styles.listItems}>{step}</li>
+              ))}
+            </ol>
             <p className={styles.methodContent}>{}</p>
           </div>
         </div>

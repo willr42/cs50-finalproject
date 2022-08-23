@@ -1,5 +1,6 @@
 .recipeContainer {
 	padding: 2rem;
+	padding-bottom: 1rem;
 }
 
 
@@ -9,4 +10,12 @@
 
 .recipeSource {
 	color: rgba(0, 0, 0, 0.25);
+}
+
+.detailsContainer {
+	margin-top: 0.5rem;
+}
+
+.listItems {
+	margin-top: 0.1rem;
 }
