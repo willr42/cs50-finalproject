@@ -1,13 +1,13 @@
-import RecipeList from './components/RecipeList';
 import './App.css';
-import { RecipeContextProvider } from './components/RecipeContext';
+import { UserContextProvider } from './components/UserContext';
+import Home from './components/Home';
 
 function App() {
   return (
     <main>
-      <RecipeContextProvider>
-        <RecipeList />
-      </RecipeContextProvider>
+      <UserContextProvider>
+        <Home />
+      </UserContextProvider>
     </main>
   );
 }
