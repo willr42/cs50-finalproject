@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
 import { ReactNode, FC } from 'react'; //types
-import fetchWithCreds from '../utils/fetchWithCreds';
 
 type Props = {
   children?: ReactNode;

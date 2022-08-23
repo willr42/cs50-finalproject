@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from 'react';
-import fetchWithCreds from '../utils/fetchWithCreds';
 import { RecipeRecord } from './types';
 
 type Props = {
