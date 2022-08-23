@@ -13,7 +13,7 @@ async function handleLogin(credentials: Credentials) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(credentials),
-    credentials: 'same-origin',
+    credentials: 'include',
   }).then((data) => data.json());
 }
 
