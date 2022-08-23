@@ -9,19 +9,24 @@ const RecipeContext = createContext<RecipeRecord[]>([]);
 
 const RecipeContextProvider: React.FC<Props> = ({ children }) => {
   const [userRecipes, setUserRecipes] = useState<RecipeRecord[]>([]);
+  async function handleRecipeFetch() {
+    return fetch(`${process.env.REACT_APP_SERVER_URL}/api/recipes`, {
+      method: 'GET',
+      credentials: 'include',
+    }).then((data) => data.json());
+  }
 
   // get user recipes
   useEffect(() => {
     let ignore = false;
-    fetchWithCreds({ url: 'http://localhost:9080/api/recipes' })
-      .then((result) => {
-        return result.json();
-      })
-      .then((json: RecipeRecord[]) => {
-        if (!ignore) {
-          setUserRecipes(json);
-        }
-      });
+    async function fetchRecipes() {
+      const result = await handleRecipeFetch();
+      if (!ignore) {
+        setUserRecipes(result);
+      }
+    }
+    fetchRecipes();
+
     return () => {
       ignore = true;
     };

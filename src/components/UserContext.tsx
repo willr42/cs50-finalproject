@@ -13,19 +13,29 @@ const UserContext = createContext({
 const UserContextProvider: FC<Props> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  async function handleCheckLogin() {
+    return fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    }).then((data) => data.json());
+  }
+
   useEffect(() => {
     let ignore = false;
-    fetchWithCreds({ url: `${process.env.REACT_APP_SERVER_URL}/login` })
-      .then((result) => {
-        return result.json();
-      })
-      .then((json) => {
-        if (!ignore) {
-          if (json.isLoggedIn) {
-            setIsLoggedIn(true);
-          }
+    async function checkLogin() {
+      const result = await handleCheckLogin();
+      if (!ignore) {
+        if (result.isLoggedIn) {
+          setIsLoggedIn(true);
         }
-      });
+      }
+    }
+
+    checkLogin();
+
     return () => {
       ignore = true;
     };
