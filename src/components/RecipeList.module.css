@@ -1,3 +1,6 @@
 .recipeList {
 	display: grid;
+	grid-template-columns: repeat(auto-fit, clamp(100%/(3 + 1) + 0.1%, 400px, 100%));
+	justify-content: center;
+	gap: 10px
 }
