@@ -1,7 +1,7 @@
 import styles from './RecipeTimeAndServe.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faUser } from '@fortawesome/free-regular-svg-icons';
-import parseMinutes from '../utils/parseMinutes';
+import parseMinutes from '../../utils/parseMinutes';
 
 type RecipeTimeProps = {
   time: number;

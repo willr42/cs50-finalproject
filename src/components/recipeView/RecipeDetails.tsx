@@ -8,8 +8,8 @@
 import { MouseEventHandler, useEffect, useState } from 'react';
 import styles from './RecipeDetails.module.css';
 import RecipeTimeAndServe from './RecipeTimeAndServe';
-import { RecipeRecord } from './types';
-import Modal from './Modal';
+import { RecipeRecord } from '../types';
+import Modal from '../Modal';
 
 type RecipeDetailsProps = {
   recipes: RecipeRecord[];

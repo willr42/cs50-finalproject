@@ -3,7 +3,7 @@
 
 import { useContext, useState } from 'react';
 import RecipeCard from './RecipeCard';
-import { RecipeContext } from './RecipeContext';
+import { RecipeContext } from '../RecipeContext';
 import RecipeDetails from './RecipeDetails';
 import styles from './RecipeList.module.css';
 
