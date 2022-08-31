@@ -1,5 +1,6 @@
 import { FormEvent, useContext, useState } from 'react';
 import { UserContext } from './UserContext';
+import styles from './LoginForm.module.css';
 
 type Credentials = {
   email: string | undefined;
@@ -29,17 +30,27 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <label>
-        <p>Username</p>
-        <input type='text' onChange={(e) => setEmail(e.target.value)} />
+        <p className={styles.paragraphLabel}>Username</p>
+        <input
+          className={styles.textInput}
+          type='text'
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </label>
       <label>
-        <p>Password</p>
-        <input type='password' onChange={(e) => setPassword(e.target.value)} />
+        <p className={styles.paragraphLabel}>Password</p>
+        <input
+          className={styles.textInput}
+          type='password'
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </label>
       <div>
-        <button type='submit'>Submit</button>
+        <button className={styles.submitButton} type='submit'>
+          Submit
+        </button>
       </div>
     </form>
   );
