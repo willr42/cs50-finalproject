@@ -1,5 +1,5 @@
 import { ReactNode, FC, useContext } from 'react'; //types
-import Login from './Login';
+import LoginNav from './LoginNav';
 import { RecipeContextProvider } from './RecipeContext';
 import RecipeList from './recipeView/RecipeList';
 import { UserContext } from './UserContext';
@@ -19,7 +19,7 @@ const Home: FC<Props> = ({ children }) => {
   } else {
     return (
       <div>
-        <Login />
+        <LoginNav />
       </div>
     );
   }

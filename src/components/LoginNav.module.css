@@ -1,0 +1,68 @@
+.blockButtonRegister {
+	grid-area: reg-button;
+	background-color: white;
+	border-color: rgba(0, 0, 0, 0.25);
+	border-style: solid;
+	border-width: 0.05rem;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	font-size: large;
+	height: fit-content;
+	margin: 0;
+	padding: 0.25rem 0.5rem;
+	text-align: center;
+	min-width: 160px;
+	margin-bottom: 1rem;
+}
+
+.blockButtonRegister:active {
+	background-color: #ccc;
+}
+
+.blockButtonLogin {
+	grid-area: login-button;
+	background-color: white;
+	border-color: rgba(0, 0, 0, 0.25);
+	border-style: solid;
+	border-width: 0.05rem;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	font-size: large;
+	height: fit-content;
+	margin: 0;
+	padding: 0.25rem 0.5rem;
+	text-align: center;
+	min-width: 160px;
+}
+
+.navGrid {
+	display: grid;
+	margin-top: 2rem;
+	grid-template-areas:
+		"main main main"
+		"main main main"
+		". reg-button ."
+		". login-button .";
+	justify-items: center;
+}
+
+.placeholder {
+	grid-area: main;
+	min-height: 25vh
+}
+
+.closeButton {
+	grid-area: reg-button;
+	background-color: white;
+	border-color: rgba(0, 0, 0, 0.25);
+	border-style: solid;
+	border-width: 0.05rem;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	font-size: large;
+	height: fit-content;
+	margin: 0;
+	padding: 0.25rem 0.5rem;
+	text-align: center;
+	min-width: 160px
+}

@@ -22,19 +22,27 @@ const RecipeList = () => {
         }}
       ></RecipeDetails>
       <div className={styles.recipeList}>
-        {recipes.map((recipe) => {
-          return (
-            <RecipeCard
-              key={recipe.recipe_id}
-              name={recipe.contents.name}
-              time={recipe.contents.time}
-              serves={recipe.contents.serves}
-              onClick={() => {
-                setClickedRecipeID(recipe.recipe_id);
-              }}
-            ></RecipeCard>
-          );
-        })}
+        {recipes.length ? (
+          recipes.map((recipe) => {
+            return (
+              <RecipeCard
+                key={recipe.recipe_id}
+                name={recipe.contents.name}
+                time={recipe.contents.time}
+                serves={recipe.contents.serves}
+                onClick={() => {
+                  setClickedRecipeID(recipe.recipe_id);
+                }}
+              ></RecipeCard>
+            );
+          })
+        ) : (
+          <div className={styles.container}>
+            <p className={styles.shoutout}>
+              No recipes found. Add your first one below!
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

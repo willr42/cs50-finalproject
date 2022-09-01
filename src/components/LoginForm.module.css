@@ -4,7 +4,9 @@
 	flex-wrap: nowrap;
 	align-items: center;
 	gap: 1.5rem;
-	margin-top: 3rem;
+	grid-area: main;
+	min-height: 25vh;
+	margin-bottom: 1.5rem;
 }
 
 .paragraphLabel {
