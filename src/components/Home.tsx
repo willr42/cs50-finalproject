@@ -1,4 +1,5 @@
 import { ReactNode, FC, useContext } from 'react'; //types
+import Footer from './Footer';
 import LoginNav from './LoginNav';
 import { RecipeContextProvider } from './RecipeContext';
 import RecipeList from './recipeView/RecipeList';
@@ -14,6 +15,7 @@ const Home: FC<Props> = ({ children }) => {
     return (
       <RecipeContextProvider>
         <RecipeList />
+        <Footer />
       </RecipeContextProvider>
     );
   } else {
