@@ -28,7 +28,7 @@ const Modal: React.FunctionComponent<Props> = ({ onClick, children }) => {
       <div className={styles.modalContainer}>
         {children}
         <div className={styles.bottomContainer}>
-          <button className={styles.bottomButton} onClick={onClick}>
+          <button className='defaultButton' onClick={onClick}>
             Close
           </button>
         </div>

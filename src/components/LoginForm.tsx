@@ -62,7 +62,7 @@ const Login = (props: Props) => {
         <label>
           <p className={styles.paragraphLabel}>Full Name</p>
           <input
-            className={styles.textInput}
+            className='textInput'
             type='text'
             onChange={(e) => setFullName(e.target.value)}
           />
@@ -73,7 +73,7 @@ const Login = (props: Props) => {
       <label>
         <p className={styles.paragraphLabel}>Email</p>
         <input
-          className={styles.textInput}
+          className='textInput'
           type='text'
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -81,13 +81,13 @@ const Login = (props: Props) => {
       <label>
         <p className={styles.paragraphLabel}>Password</p>
         <input
-          className={styles.textInput}
+          className='textInput'
           type='password'
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
       <div>
-        <button className={styles.submitButton} type='submit'>
+        <button className='defaultButton' type='submit'>
           Submit
         </button>
       </div>

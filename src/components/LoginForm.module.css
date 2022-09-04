@@ -26,20 +26,3 @@
 }
 
 /* do button style */
-.submitButton {
-	background-color: white;
-	border-color: rgba(0, 0, 0, 0.25);
-	border-style: solid;
-	border-width: 0.05rem;
-	border-radius: 0.25rem;
-	cursor: pointer;
-	font-size: large;
-	height: fit-content;
-	margin: 0;
-	padding: 0.25rem 0.5rem;
-	text-align: center;
-}
-
-.submitButton:active {
-	background-color: #ccc;
-}

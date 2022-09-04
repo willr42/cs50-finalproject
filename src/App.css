@@ -25,3 +25,50 @@ body {
 h1 {
 	font-size: 25px;
 }
+
+/* Global Styles */
+
+.form {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: 1.5rem;
+	min-height: 25vh;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.paragraphLabel {
+	text-align: center;
+	margin-bottom: 0.5rem;
+	font-size: larger;
+}
+
+.textInput {
+	font-size: 16px;
+	border-radius: 4px;
+	border: 2px solid #ccc;
+	line-height: 1;
+	height: 2.25rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.defaultButton {
+	background-color: white;
+	border-color: rgba(0, 0, 0, 0.25);
+	border-style: solid;
+	border-width: 0.05rem;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	font-size: large;
+	height: fit-content;
+	margin: 0;
+	padding: 0.25rem 0.5rem;
+	text-align: center;
+}
+
+.defaultButton:active {
+	background-color: #ccc;
+}
