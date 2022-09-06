@@ -74,7 +74,7 @@ const Login = (props: Props) => {
         <p className={styles.paragraphLabel}>Email</p>
         <input
           className='textInput'
-          type='text'
+          type='email'
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
