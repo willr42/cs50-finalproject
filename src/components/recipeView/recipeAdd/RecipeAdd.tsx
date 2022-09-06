@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { RecipeContext } from '../../RecipeContext';
 import Modal from '../../Modal';
 import styles from './RecipeAdd.module.css';
-import { RecipeContents } from '../../types';
+import { FrontendRecipeContents } from '../../types';
 import recipeFormStateUpdate from './recipeFormStateUpdate';
 // will need to call a utility function to add a new recipe to DB
 
@@ -11,7 +11,8 @@ import recipeFormStateUpdate from './recipeFormStateUpdate';
 const RecipeAdd = () => {
   const recipes = useContext(RecipeContext);
   const [addShowing, setAddShowing] = useState(false);
-  const [recipeContents, setRecipeContents] = useState<RecipeContents>();
+  const [recipeContents, setRecipeContents] =
+    useState<FrontendRecipeContents>();
   return (
     <>
       {addShowing ? (
