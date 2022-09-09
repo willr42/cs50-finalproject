@@ -2,8 +2,11 @@ import { useContext, useState } from 'react';
 import { RecipeContext } from '../../RecipeContext';
 import Modal from '../../Modal';
 import styles from './RecipeAdd.module.css';
-import { FrontendRecipeContents } from '../../types';
-import recipeFormStateUpdate from './recipeFormStateUpdate';
+import { RecipeContents } from '../../types';
+import {
+  recipeFormInputUpdate,
+  recipeFormTextAreaUpdate,
+} from './recipeFormStateUpdate';
 // will need to call a utility function to add a new recipe to DB
 
 // form needs to reflect RecipeRecord type
@@ -11,21 +14,32 @@ import recipeFormStateUpdate from './recipeFormStateUpdate';
 const RecipeAdd = () => {
   const recipes = useContext(RecipeContext);
   const [addShowing, setAddShowing] = useState(false);
-  const [recipeContents, setRecipeContents] =
-    useState<FrontendRecipeContents>();
+  const [recipeContents, setRecipeContents] = useState<RecipeContents>();
+
+  const handleRecipeSubmit: React.FormEventHandler = (event) => {
+    event.preventDefault();
+    console.log(recipeContents);
+  };
+
   return (
     <>
       {addShowing ? (
         <Modal onClick={() => setAddShowing(false)}>
-          <form className='form' autoComplete='false'>
+          <form
+            className='form'
+            autoComplete='false'
+            onSubmit={handleRecipeSubmit}
+            // add conditional. If submitting, we need to show something.
+          >
             <label>
               <p className={styles.paragraphLabel}>Recipe Title</p>
               <input
                 className='textInput'
                 type='text'
                 onChange={(e) =>
-                  recipeFormStateUpdate(e, 'name', setRecipeContents)
+                  recipeFormInputUpdate(e, 'name', setRecipeContents)
                 }
+                required={true}
               />
             </label>
             <label>
@@ -35,8 +49,9 @@ const RecipeAdd = () => {
                 type='text'
                 placeholder='Where did you find it?'
                 onChange={(e) =>
-                  recipeFormStateUpdate(e, 'source', setRecipeContents)
+                  recipeFormInputUpdate(e, 'source', setRecipeContents)
                 }
+                required={true}
               />
             </label>
             <label>
@@ -46,8 +61,9 @@ const RecipeAdd = () => {
                 type='text'
                 placeholder='eg. 01:30'
                 onChange={(e) =>
-                  recipeFormStateUpdate(e, 'time', setRecipeContents)
+                  recipeFormInputUpdate(e, 'time', setRecipeContents)
                 }
+                required={true}
               />
             </label>
             <label>
@@ -58,8 +74,9 @@ const RecipeAdd = () => {
                 placeholder='Serves how many?'
                 min='1'
                 onChange={(e) =>
-                  recipeFormStateUpdate(e, 'serves', setRecipeContents)
+                  recipeFormInputUpdate(e, 'serves', setRecipeContents)
                 }
+                required={true}
               />
             </label>
             <label>
@@ -69,8 +86,9 @@ const RecipeAdd = () => {
                 placeholder='100g mushrooms&#10;100ml milk'
                 rows={10}
                 onChange={(e) =>
-                  recipeFormStateUpdate(e, 'ingredients', setRecipeContents)
+                  recipeFormTextAreaUpdate(e, 'ingredients', setRecipeContents)
                 }
+                required={true}
               />
             </label>
             <label>
@@ -80,10 +98,14 @@ const RecipeAdd = () => {
                 placeholder='1. Preheat oven to 180°C.&#10;2.Chop up the mushrooms.'
                 rows={10}
                 onChange={(e) =>
-                  recipeFormStateUpdate(e, 'method', setRecipeContents)
+                  recipeFormTextAreaUpdate(e, 'method', setRecipeContents)
                 }
+                required={true}
               />
             </label>
+            <button type='submit' className='defaultButton affirmButton'>
+              Add recipe
+            </button>
           </form>
         </Modal>
       ) : (
