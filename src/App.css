@@ -80,6 +80,10 @@ h1 {
 	text-align: center;
 }
 
+.affirmButton {
+	background-color: rgb(31, 196, 31)
+}
+
 .defaultButton:active {
 	background-color: #ccc;
 }
