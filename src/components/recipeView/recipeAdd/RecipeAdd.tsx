@@ -12,13 +12,34 @@ import {
 // form needs to reflect RecipeRecord type
 
 const RecipeAdd = () => {
-  const recipes = useContext(RecipeContext);
+  let recipes = useContext(RecipeContext);
   const [addShowing, setAddShowing] = useState(false);
   const [recipeContents, setRecipeContents] = useState<RecipeContents>();
 
-  const handleRecipeSubmit: React.FormEventHandler = (event) => {
+  async function addNewRecipe(newRecipe: RecipeContents) {
+    return fetch(`${process.env.REACT_APP_SERVER_URL}/api/recipes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newRecipe),
+      credentials: 'include',
+    }).then((data) => data.json());
+  }
+
+  const handleSubmit: React.FormEventHandler = async (event) => {
     event.preventDefault();
-    console.log(recipeContents);
+    // typeguard
+    if (!recipeContents) {
+      console.log('Something went wrong...');
+      return;
+    }
+    // returns the added recipe
+    const response = await addNewRecipe(recipeContents);
+
+    // update state with new recipe
+    console.log(response);
+    recipes = [...recipes, response];
   };
 
   return (
@@ -28,7 +49,7 @@ const RecipeAdd = () => {
           <form
             className='form'
             autoComplete='false'
-            onSubmit={handleRecipeSubmit}
+            onSubmit={handleSubmit}
             // add conditional. If submitting, we need to show something.
           >
             <label>
