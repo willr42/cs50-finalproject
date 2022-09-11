@@ -25,7 +25,12 @@ export function recipeFormTextAreaUpdate(
   value: string | number,
   stateUpdater: Function
 ) {
-  const valueArray = event.target.value.split('\n');
+  const unstrippedArray = event.target.value.split('\n');
+  // filter out newlines
+  const valueArray = unstrippedArray.filter((value) =>
+    value.replace(/(\r\n|\n|\r)/gm, '')
+  );
+
   stateUpdater((previousState: RecipeContents) => {
     const newValue: Partial<RecipeContents> = {
       [value]: valueArray,
