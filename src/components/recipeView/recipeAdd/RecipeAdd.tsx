@@ -1,4 +1,4 @@
-import { useContext, useRef, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { RecipeContext } from '../../RecipeContext';
 import Modal from '../../Modal';
 import styles from './RecipeAdd.module.css';
@@ -16,16 +16,10 @@ const checkStringForTimeFormat = (input: string) => {
   return re.test(input);
 };
 
-const checkStringForTimeFormat = (input: string) => {
-  const re = /\d?\d:\d\d/;
-  return re.test(input);
-};
-
 const RecipeAdd = () => {
   let recipes = useContext(RecipeContext);
   const [addShowing, setAddShowing] = useState(false);
   const [recipeContents, setRecipeContents] = useState<RecipeContents>();
-  const timeInputEl = useRef<HTMLInputElement>(null);
   const timeInputEl = useRef<HTMLInputElement>(null);
 
   async function addNewRecipe(newRecipe: RecipeContents) {
@@ -52,15 +46,6 @@ const RecipeAdd = () => {
     // update state with new recipe
     console.log(response);
     recipes = [...recipes, response];
-  };
-
-  // Ensure form contains valid timestring.
-  const emptyTimeInput = () => {
-    if (timeInputEl.current) {
-      timeInputEl.current.value = '';
-      timeInputEl.current.setCustomValidity('Must be in 00:00 format');
-      timeInputEl.current.reportValidity();
-    }
   };
 
   // Ensure form contains valid timestring.
@@ -108,7 +93,6 @@ const RecipeAdd = () => {
             <label>
               <p className={styles.paragraphLabel}>Time to cook</p>
               <input
-                ref={timeInputEl}
                 ref={timeInputEl}
                 className='textInput'
                 type='text'
