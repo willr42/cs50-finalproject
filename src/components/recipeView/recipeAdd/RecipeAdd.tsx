@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { RecipeContext } from '../../RecipeContext';
 import Modal from '../../Modal';
 import styles from './RecipeAdd.module.css';
@@ -11,10 +11,16 @@ import {
 
 // form needs to reflect RecipeRecord type
 
+const checkStringForTimeFormat = (input: string) => {
+  const re = /\d?\d:\d\d/;
+  return re.test(input);
+};
+
 const RecipeAdd = () => {
   let recipes = useContext(RecipeContext);
   const [addShowing, setAddShowing] = useState(false);
   const [recipeContents, setRecipeContents] = useState<RecipeContents>();
+  const timeInputEl = useRef<HTMLInputElement>(null);
 
   async function addNewRecipe(newRecipe: RecipeContents) {
     return fetch(`${process.env.REACT_APP_SERVER_URL}/api/recipes`, {
@@ -40,6 +46,15 @@ const RecipeAdd = () => {
     // update state with new recipe
     console.log(response);
     recipes = [...recipes, response];
+  };
+
+  // Ensure form contains valid timestring.
+  const emptyTimeInput = () => {
+    if (timeInputEl.current) {
+      timeInputEl.current.value = '';
+      timeInputEl.current.setCustomValidity('Must be in 00:00 format');
+      timeInputEl.current.reportValidity();
+    }
   };
 
   return (
@@ -78,12 +93,19 @@ const RecipeAdd = () => {
             <label>
               <p className={styles.paragraphLabel}>Time to cook</p>
               <input
+                ref={timeInputEl}
                 className='textInput'
                 type='text'
                 placeholder='eg. 01:30'
-                onChange={(e) =>
-                  recipeFormInputUpdate(e, 'time', setRecipeContents)
-                }
+                onBlur={(e) => {
+                  // Check if entered a valid time
+                  if (checkStringForTimeFormat(e.target.value)) {
+                    timeInputEl.current?.setCustomValidity('');
+                    recipeFormInputUpdate(e, 'time', setRecipeContents);
+                  } else {
+                    emptyTimeInput();
+                  }
+                }}
                 required={true}
               />
             </label>
