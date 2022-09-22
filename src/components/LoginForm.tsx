@@ -1,6 +1,6 @@
-import { FormEvent, useContext, useState } from "react";
-import { UserContext } from "./UserContext";
-import styles from "./LoginForm.module.css";
+import { FormEvent, useContext, useState } from 'react';
+import { UserContext } from './UserContext';
+import styles from './LoginForm.module.css';
 
 type Credentials = {
   email: string | undefined;
@@ -17,31 +17,31 @@ type Props = {
 
 async function handleLogin(credentials: Credentials) {
   return fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(credentials),
-    credentials: "include",
+    credentials: 'include',
   }).then((data) => data.json());
 }
 
 async function handleRegister(credentials: Credentials) {
   return fetch(`${process.env.REACT_APP_SERVER_URL}/register`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(credentials),
-    credentials: "include",
+    credentials: 'include',
   }).then((data) => data.json());
 }
 
 const Login = (props: Props) => {
   let ctx = useContext(UserContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -65,8 +65,8 @@ const Login = (props: Props) => {
         <label>
           <p className={styles.paragraphLabel}>Full Name</p>
           <input
-            className="textInput"
-            type="text"
+            className='textInput'
+            type='text'
             onChange={(e) => setFullName(e.target.value)}
           />
         </label>
@@ -76,21 +76,21 @@ const Login = (props: Props) => {
       <label>
         <p className={styles.paragraphLabel}>Email</p>
         <input
-          className="textInput"
-          type="text"
+          className='textInput'
+          type='text'
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
       <label>
         <p className={styles.paragraphLabel}>Password</p>
         <input
-          className="textInput"
-          type="password"
+          className='textInput'
+          type='password'
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
       <div>
-        <button className="defaultButton" type="submit">
+        <button className='defaultButton' type='submit'>
           Submit
         </button>
       </div>

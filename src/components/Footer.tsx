@@ -1,5 +1,5 @@
 import styles from './Footer.module.css';
-import RecipeAdd from './recipeView/RecipeAdd';
+import RecipeAdd from './recipeView/recipeAdd/RecipeAdd';
 
 const Footer = () => {
   return (
