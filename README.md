@@ -2,6 +2,14 @@
 
 Final project for CS50 2021.
 
+## Setup
+
+This project requires some deliberate setup due to my amateurism at the start. I'm just leaving it because to refactor it would probably be a waste of time. There needs to be a `.env` file created at the root of this project containing the server URL, eg:
+
+```bash
+REACT_APP_SERVER_URL=http://localhost:9080
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
